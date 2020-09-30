@@ -4,13 +4,8 @@ import './App.css';
 import Information from './info-json';
 
 class App extends Component {
-
-  constructor(){
-    super();
-
-    this.state={
-      search:null
-    };
+  state={
+   search:null
   }
 
   searchSpace=(event)=>{
@@ -22,6 +17,7 @@ class App extends Component {
     const styleInfo = {
       paddingRight:'10px'
     }
+    const { search }=this.state;
     const elementStyle ={
       border:'solid',
       borderRadius:'10px',
@@ -35,7 +31,7 @@ class App extends Component {
     const items = Information.filter((data)=>{
       if(this.state.search == null)
           return data
-      else if(data.name.toLowerCase().includes(this.state.search.toLowerCase()) || data.country.toLowerCase().includes(this.state.search.toLowerCase())){
+      else if(data.name.toLowerCase().includes(search.toLowerCase()) || data.country.toLowerCase().includes(search.toLowerCase())){
           return data
       }
     }).map(data=>{
